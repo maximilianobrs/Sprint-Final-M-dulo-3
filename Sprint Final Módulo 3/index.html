@@ -2,165 +2,164 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario</title>
+	<link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body>
 
-    <main>
-        <div class="container">
-            <div class="formulario">
-                <form class="box-form">
+	<main>
+		<div class="container">
+			<div class="formulario">
+				<form class="box-form">
 
-                    <!-- INGRESO DE NOMBRES -->
-                    <div class="box-colum content">
-                        <label for="nombres">Nombres:</label>
-                        <input type="text" id="nombres" placeholder="Ingrese Nombres" class="input-edit">
-                    </div>
-                    <!-- INGRESO DE APELLIDOS -->
-                    <div class="box-colum content">
-                        <label for="apellidos">Apellidos:</label>
-                        <input type="text" id="apellidos" placeholder="Ingrese Apellidos" class="input-edit">
-                    </div>
+					<!-- INGRESO DE NOMBRES -->
+					<div class="box-colum content">
+						<label for="nombres">Nombres:</label>
+						<input type="text" id="nombres" placeholder="Ingrese Nombres" class="input-edit">
+					</div>
+					<!-- INGRESO DE APELLIDOS -->
+					<div class="box-colum content">
+						<label for="apellidos">Apellidos:</label>
+						<input type="text" id="apellidos" placeholder="Ingrese Apellidos" class="input-edit">
+					</div>
 
-                    <!-- INGRESO DE FECCHA NACIMIENTO -->
-                    <div class="box-colum content">
-                        <label for="fechaNacimiento">Fecha Nacimiento:</label>
-                        <input type="date" id="fechaNacimiento" class="input-edit">
-                    </div>
+					<!-- INGRESO DE FECCHA NACIMIENTO -->
+					<div class="box-colum content">
+						<label for="fechaNacimiento">Fecha Nacimiento:</label>
+						<input type="date" id="fechaNacimiento" class="input-edit">
+					</div>
 
-                    <!-- INGRESO DE TRABAJADOR ACTIVO O  NO -->
-                    <div class="box-colum content">
-                        <h2>Trabajador Activo:</h2>
-                        <select>
-                            <option selected disabled> Selecion opticion</option>
-                            <option value="text">Si</option>
-                            <option value="text">No</option>
-                        </select>
-                    </div>
+					<!-- INGRESO DE TRABAJADOR ACTIVO O  NO -->
+					<div class="box-colum content">
+						<h2>Trabajador Activo:</h2>
+						<select>
+							<option selected disabled> Selecion opticion</option>
+							<option value="text">Si</option>
+							<option value="text">No</option>
+						</select>
+					</div>
 
 
-                    <!-- INGRESO DE FECHA DE INGRESO DE TRABAJADOR -->
-                    <div class="box-colum content">
-                        <label for="FechaIngreso">Fecha Ingreso:</label>
-                        <input type="date" id="FechaIngreso" class="input-edit">
-                    </div>
+					<!-- INGRESO DE FECHA DE INGRESO DE TRABAJADOR -->
+					<div class="box-colum content">
+						<label for="FechaIngreso">Fecha Ingreso:</label>
+						<input type="date" id="FechaIngreso" class="input-edit">
+					</div>
 
-                    <!-- INGRESO DE SUELDO Y SUELDO ANTERIOR -->
-                    <div class="box-row content row">
-                        <div class="box-colum box-col col">
+					<!-- INGRESO DE SUELDO Y SUELDO ANTERIOR -->
+					<div class="box-row content row">
+						<div class="box-colum box-col col">
 
-                            <label for="SueldoActual">Sueldo Actual:</label>
-                            <input type="number" id="SueldoActual" placeholder="Ingrese Sueldo Actual"
-                                class="input-edit">
-                        </div>
-                        <div class="box-colum box-col col">
-                            <label for="SueldoAnterior">Sueldo Anterior:</label>
-                            <input type="number" id="SueldoAnterior" placeholder="Ingrese Sueldo Anterior"
-                                class="input-edit">
-                        </div>
-                    </div>
+							<label for="SueldoActual">Sueldo Actual:</label>
+							<input type="number" id="SueldoActual" placeholder="Ingrese Sueldo Actual" class="input-edit">
+						</div>
+						<div class="box-colum box-col col">
+							<label for="SueldoAnterior">Sueldo Anterior:</label>
+							<input type="number" id="SueldoAnterior" placeholder="Ingrese Sueldo Anterior" class="input-edit">
+						</div>
+					</div>
 
-                    <!-- INGRESO DE CARGA FAMILIAR -->
-                    <div class="box-colum content">
-                        <h2>Carga Familiar:</h2>
-                        <select>
-                            <option selected disabled> Selecion opticion</option>
-                            <option value="text">Si</option>
-                            <option value="text">No</option>
-                        </select>
-                    </div>
+					<!-- INGRESO DE CARGA FAMILIAR -->
+					<div class="box-colum content">
+						<h2>Carga Familiar:</h2>
+						<select>
+							<option selected disabled> Selecion opticion</option>
+							<option value="text">Si</option>
+							<option value="text">No</option>
+						</select>
+					</div>
 
-                    <!-- INGRESO CANTIDAD DE CARGA FAMILIAR -->
-                    <div class="box-colum content">
-                        <label for="cantidadCarga">Cantidad Carga:</label>
-                        <input type="number" id="cantidadCarga" placeholder="Ingrese Numero de Carga"
-                            class="input-edit">
-                    </div>
+					<!-- INGRESO CANTIDAD DE CARGA FAMILIAR -->
+					<div class="box-colum content">
+						<label for="cantidadCarga">Cantidad Carga:</label>
+						<input type="number" id="cantidadCarga" placeholder="Ingrese Numero de Carga" class="input-edit">
+					</div>
 
-                    <!-- Botones del formulario -->
-                    <div class="box-button">
-                        <button class="edit-button-form">Guardar</button>
-                        <button class="edit-button-form">cancelar</button>
-                    </div>
+					<!-- Botones del formulario -->
+					<div class="box-button">
+						<button class="edit-button-form">Guardar</button>
+						<button class="edit-button-form">cancelar</button>
+					</div>
 
-                </form>
-            </div>
+				</form>
+			</div>
 
-        </div>
-        <div class="container">
-            <div class="tabla">
+		</div>
+		<div class="container">
+			<div class="tabla">
 
-                <!-- tabla de datos -->
-                <table class="content-table">
-                    <thead>
-                        <div class="box-but">
-                            <button>cálculos con fechas</button>
-                            <button>cálculos de sueldo</button>
-                            <button>Mostrar todo</button>
-                        </div>
-                        <tr>
-                            <th>N</th>
-                            <th>Nombres</th>
-                            <th>Apllidos</th>
-                            <th>Fecha <br>nacimiento</th>
-                            <th>trabajador <br>activo</th>
-                            <th>Fecha <br>ingreso</th>
-                            <th>Sueldo <br>actual</th>
-                            <th>Sueldo semestre <br>anterior</th>
-                            <th>Activida de carga<br>familiares</th>
-                            <th>Cantidad de cargas<br>familiares</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>loadsa</td>
-                            <td>dsadsadasd</td>
-                            <td>dsadd</td>
-                            <td>dsada</td>
-                            <td>dsad</td>
-                            <td>dsads</td>
-                            <td>dsadasd</td>
-                            <td>dasdsad</td>
-                            <td>dasdsad</td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>loadsad</td>
-                            <td>dsadsadasd</td>
-                            <td>dsadd</td>
-                            <td>dsada</td>
-                            <td>dsad</td>
-                            <td>dsads</td>
-                            <td>dsadasd</td>
-                            <td>dasdsad</td>
-                            <td>dasdsad</td>
-                        </tr>
-                        <tr>
-                            <td>01</td>
-                            <td>loadsad</td>
-                            <td>dsadsadasd</td>
-                            <td>dsadd</td>
-                            <td>dsada</td>
-                            <td>dsad</td>
-                            <td>dsads</td>
-                            <td>dsadasd</td>
-                            <td>dasdsad</td>
-                            <td>dasdsad</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+				<!-- tabla de datos -->
+				<table class="content-table">
+					<thead>
+						<div class="box-but">
+							<button>cálculos con fechas</button>
+							<button>cálculos de sueldo</button>
+							<button>Mostrar todo</button>
+						</div>
+						<tr>
+							<th>N</th>
+							<th>Nombres</th>
+							<th>Apllidos</th>
+							<th>Fecha <br>nacimiento</th>
+							<th>trabajador <br>activo</th>
+							<th>Fecha <br>ingreso</th>
+							<th>Sueldo <br>actual</th>
+							<th>Sueldo semestre <br>anterior</th>
+							<th>Activida de carga<br>familiares</th>
+							<th>Cantidad de cargas<br>familiares</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>01</td>
+							<td>loadsa</td>
+							<td>dsadsadasd</td>
+							<td>dsadd</td>
+							<td>dsada</td>
+							<td>dsad</td>
+							<td>dsads</td>
+							<td>dsadasd</td>
+							<td>dasdsad</td>
+							<td>dasdsad</td>
+						</tr>
+						<tr>
+							<td>01</td>
+							<td>loadsad</td>
+							<td>dsadsadasd</td>
+							<td>dsadd</td>
+							<td>dsada</td>
+							<td>dsad</td>
+							<td>dsads</td>
+							<td>dsadasd</td>
+							<td>dasdsad</td>
+							<td>dasdsad</td>
+						</tr>
+						<tr>
+							<td>01</td>
+							<td>loadsad</td>
+							<td>dsadsadasd</td>
+							<td>dsadd</td>
+							<td>dsada</td>
+							<td>dsad</td>
+							<td>dsads</td>
+							<td>dsadasd</td>
+							<td>dasdsad</td>
+							<td>dasdsad</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 
-        </div>
+		</div>
 
-    </main>
-    <script src="assets/js/main.js"></script>
+	</main>
+	<script src="assets/js/a_CalcularFechas.js"></script>
+	<script src="assets/js/b_CalcularPermanenciaEnLaOrganizacion.js"></script>
+	<script src="assets/js/main.js"></script>
 </body>
 
 </html>
