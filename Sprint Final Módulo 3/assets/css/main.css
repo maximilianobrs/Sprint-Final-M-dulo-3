@@ -1,0 +1,122 @@
+
+html{
+    font-size: 16px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+label{
+    margin-bottom: 5px;
+}
+.tittle-form{
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+h2{
+    font-weight: normal;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.input-edit{
+    height: 25px;
+    padding: 0 5px;
+    border-radius: 10px;
+}
+select{
+    height: 25px;
+    padding: 0 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    height: 28px;
+}
+
+
+
+
+
+
+
+
+.container{
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.formulario{
+    padding: 5rem 0;
+    display: flex;
+    justify-content: center;
+}
+.box-form{
+    border: 2px solid black;
+    padding: 3rem;
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+}
+.box-colum{
+    display: flex;
+    flex-direction: column;
+}
+.box-row{
+    display: flex;
+}
+.box-col{
+    width: 50%;
+}
+.content{
+    margin-bottom: 1rem;
+}
+
+.box-button{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.col{
+    width: 48%;
+}
+.edit-button-form{
+    padding: 10px;
+    width: 100px;
+}
+
+.tabla{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 0;
+}
+.box-but{
+    border-top: 2px solid black;
+    padding: 20px;
+}
+.box-but button{
+    margin: 0 5px;
+    padding: 10px;
+}
+.content-table {
+    border-collapse: collapse;
+    min-width: 400px;
+    overflow: hidden;
+}
+.content-table thead tr {
+    background-color: #5d5d5d;
+    color: #ffffff;
+    text-align: left;
+
+}
+
+.content-table th, .content-table td {
+    padding: 20px 15px;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
