@@ -22,6 +22,7 @@ class Trabajador {
 
 	mostrarDatos() {
 		let montoCarga = 0;
+
 		switch (this.sueldoSemestreAnterior) {
 			case this.sueldoSemestreAnterior <= 429899:
 				montoCarga = 16828;
@@ -44,7 +45,7 @@ class Trabajador {
 		return {
 			nombreYApellido: `${this.nombre} ${this.apellidos}`,
 			sueldoActual: this.sueldoActual,
-			montoCargaFamiliarTramo: montoCarga,
+			montoCarga,
 			sueldoFinal: montoTotalCarga + this.sueldoActual,
 		};
 	}
@@ -169,6 +170,7 @@ class Trabajador {
 					  } días`
 			}
 			La hora en que ha realizado su consulta es: ${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`;
+
 		let resultado = {
 			diaDeLaSemanaNacio: diaDeLaSemana(numeroDiaDelaSemana),
 			edad: {
@@ -186,6 +188,7 @@ class Trabajador {
 			horaDeConsulta: `${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`,
 			mensajeCompleto: mensaje,
 		};
+
 		return resultado;
 	}
 
@@ -203,6 +206,7 @@ class Trabajador {
 			Su permanencia en la organización es de: ${resultado.edad.anio} años y ${resultado.edad.mes} meses y ${resultado.edad.dias} días
 			Para completar el año de permanencia faltan: ${resultado.diasRestantesParaSuProximoCumpleanios} días`,
 		};
+
 		return result;
 	}
 }
