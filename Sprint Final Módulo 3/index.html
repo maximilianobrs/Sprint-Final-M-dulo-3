@@ -198,16 +198,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 		crossorigin="anonymous"></script>
-	<script src="assets/js/modal.js"></script>
-	<script>
-		// import ModalOwner from './assets/js/modal.js'
+	<script src="assets/js/modalComponent.js"></script>
+	<script> 
 		function show(mensaje, id) {
 			console.log('verTodo', mensaje,id)
 			let modal=ModalOwner({content:mensaje, id})
 			console.log(modal)
 			document.querySelector('#mensaje').innerHTML = modal
 			const myModalAlternative = new bootstrap.Modal(`#${id}`, { keyboard: false })
-	 
 			myModalAlternative.show()
 		} 
 	</script>
