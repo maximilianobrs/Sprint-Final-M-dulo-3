@@ -1,4 +1,4 @@
-# sprint-final-mdulo-3
+# sprint-final-modulo-3
 
 
 Integrantes:
