@@ -28,16 +28,8 @@ select{
     padding: 0 5px;
     border-radius: 10px;
     border: 2px solid black;
-    height: 28px;
-}
-
-
-
-
-
-
-
-
+    height: 40px;
+} 
 .container{
     width: 80%;
     max-width: 1200px;

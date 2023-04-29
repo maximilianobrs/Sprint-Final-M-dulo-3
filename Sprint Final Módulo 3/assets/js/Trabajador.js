@@ -1,17 +1,45 @@
+String.prototype.replaceEnter = function ($replace = '') {
+	return this.replace(/^\s+|\s+$/gm, '').split('\n').join($replace);
+};
 class Trabajador {
 	constructor(
-		nombre,
-		apellidos,
-		sueldoActual,
-		sueldoSemestreAnterior,
-		cantidadCargasFamiliares
+		{
+			nombres,
+			apellidos,
+			sueldoActual,
+			sueldoSemestreAnterior,
+			cantidadCargasFamiliares,
+			fechaNacimiento,
+			fechaIngreso,
+			trabajadorActivo = true,
+			tieneCargasFamiliares = false
+		}
 	) {
-		this.nombre = nombre;
+		console.log('constructor');
+		let opciones={
+			nombres,
+			apellidos,
+			sueldoActual,
+			sueldoSemestreAnterior,
+			cantidadCargasFamiliares,
+			fechaNacimiento,
+			fechaIngreso,
+			trabajadorActivo,
+			tieneCargasFamiliares
+		}
+		console.log('opciones',opciones);
+		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.sueldoActual = sueldoActual;
 		this.sueldoSemestreAnterior = sueldoSemestreAnterior;
 		this.cantidadCargasFamiliares = cantidadCargasFamiliares;
-		this.tieneCargasFamiliares = false;
+		this.fechaNacimiento = `${fechaNacimiento.substring(0, 10)}T00:00:00`;
+		this.fechaIngreso = `${fechaIngreso.substring(0, 10)}T00:00:00`;
+		this.trabajadorActivo = trabajadorActivo;
+		this.tieneCargasFamiliares = tieneCargasFamiliares;
+		this.sueldoFinal = 0;
+		this.montoTotalCarga = 0;
+		this.tramoCarga = null;
 		if (
 			Number.isInteger(this.cantidadCargasFamiliares) &&
 			this.cantidadCargasFamiliares > 0
@@ -19,35 +47,115 @@ class Trabajador {
 			this.tieneCargasFamiliares = true;
 		}
 	}
+	calcularMiEdad() {
+		let fechaActual = new Date(Date.now());
+		let fechaNacimiento = new Date(this.fechaNacimiento);
+		return this.calcularEdad(fechaNacimiento, fechaActual);
+	}
 
-	mostrarDatos() {
+	cargaFamiliarYSueldoFinal() {
 		let montoCarga = 0;
 
 		switch (this.sueldoSemestreAnterior) {
 			case this.sueldoSemestreAnterior <= 429899:
 				montoCarga = 16828;
+				this.tramoCarga = 'Tramo A';
 				break;
 			case this.sueldoSemestreAnterior > 429899 &&
 				this.sueldoSemestreAnterior <= 627913:
 				montoCarga = 10327;
+				this.tramoCarga = 'Tramo B';
 				break;
 			case this.sueldoSemestreAnterior > 627913 &&
 				this.sueldoSemestreAnterior <= 979330:
 				montoCarga = 3264;
+				this.tramoCarga = 'Tramo C';
 				break;
 			default:
 				montoCarga = 0;
+				this.tramoCarga = 'Tramo D';
 				break;
 		}
 
 		let montoTotalCarga = montoCarga * this.cantidadCargasFamiliares;
-
-		return {
-			nombreYApellido: `${this.nombre} ${this.apellidos}`,
+		this.montoTotalCarga = montoTotalCarga;
+		this.sueldoFinal = this.sueldoActual + montoTotalCarga;
+		let resultado = {
+			nombreYApellido: `${this.nombres} ${this.apellidos}`,
 			sueldoActual: this.sueldoActual,
+			sueldoSemestreAnterior:this.sueldoSemestreAnterior,
 			montoCarga,
-			sueldoFinal: montoTotalCarga + this.sueldoActual,
+			montoTotalCarga,
+			sueldoFinal: this.sueldoFinal
 		};
+
+		let mensaje = `${resultado.nombreYApellido},
+		El cálculo de su sueldo ha sido realizado con éxito. 
+		A continuación se detallan los resultados:
+		- Sueldo Actual: ${resultado.sueldoActual}$
+		- Monto de la carga: ${resultado.montoCarga}$
+		- Monto total de la carga: ${resultado.montoTotalCarga} 
+		- Sueldo Semestre Anterior: ${resultado.sueldoSemestreAnterior}$
+		- Sueldo Final: ${resultado.sueldoFinal}$`;
+		return mensaje.replaceEnter();
+	}
+	calcularMiPermanenciaEnLaOrganizacion() {
+		let fechaActual = new Date(Date.now());
+		let fechaIngreso = new Date(Date.parse(this.fechaIngreso));
+		console.log(fechaIngreso,this)
+		return this.calcularPermanenciaEnLaOrganizacion(fechaIngreso, fechaActual).mensajeCompleto.replaceEnter();
+	}
+	mostrarMensajeConTodosLosDatosAsociadosAlTrabajador() {
+		let datosTrabajador = this.mostrarTodosLosDatosAsociadosAlTrabajador();
+		let mensaje = `El trabajador ${datosTrabajador.nombres} ${datosTrabajador.apellidos} tiene un sueldo actual de ${datosTrabajador.sueldoActual} 
+		y un sueldo del semestre anterior de ${datosTrabajador.sueldoSemestreAnterior} 
+		y tiene ${datosTrabajador.cantidadCargasFamiliares} cargas familiares 
+		y su fecha de nacimiento es ${datosTrabajador.fechaNacimiento} 
+		y su fecha de ingreso es ${datosTrabajador.fechaIngreso} 
+		y su estado es ${datosTrabajador.trabajadorActivo} 
+		y tiene cargas familiares ${datosTrabajador.tieneCargasFamiliares} 
+		y su sueldo final es ${datosTrabajador.sueldoFinal} 
+		y el monto total de carga es ${datosTrabajador.montoTotalCarga} 
+		y su tramo de carga es ${datosTrabajador.tramoCarga}`;
+		return mensaje.replaceEnter();
+	}
+
+	mostrarTodosLosDatosAsociadosAlTrabajador() {
+		let datosTrabajador = {
+			nombres: this.nombres,
+			apellidos: this.apellidos,
+			sueldoActual: this.sueldoActual,
+			sueldoSemestreAnterior: this.sueldoSemestreAnterior,
+			cantidadCargasFamiliares: this.cantidadCargasFamiliares,
+			fechaNacimiento: this.fechaNacimiento,
+			fechaIngreso: this.fechaIngreso,
+			trabajadorActivo: this.trabajadorActivo,
+			tieneCargasFamiliares: this.tieneCargasFamiliares,
+			sueldoFinal: this.sueldoFinal,
+			montoTotalCarga: this.montoTotalCarga,
+			tramoCarga: this.tramoCarga,
+		};
+		return datosTrabajador;
+	}
+
+	calcularPermanenciaEnLaOrganizacion(fechaIngreso, fechaActual) {
+		console.log(fechaIngreso);
+		console.log(fechaActual);
+		let resultado = this.calcularEdad(fechaIngreso, fechaActual);
+
+		let result = {
+			dias: resultado.edadEnDias,
+			meses: resultado.edadEnMeses,
+			anios: resultado.edad.anio,
+			diasParaCompletarAnio: resultado.diasRestantesParaSuProximoCumpleanios,
+			tiempo: resultado.edad,
+			mensajeCompleto: `Su permanencia en la organización es de: ${resultado.edadEnDias} días	
+			Su permanencia en la organización es de: ${resultado.edadEnMeses} meses 			
+			Su permanencia en la organización es de: ${resultado.edad.anio} años y ${resultado.edad.mes} meses y ${resultado.edad.dias} días			
+			Para completar el año de permanencia faltan: ${resultado.diasRestantesParaSuProximoCumpleanios} días`,
+		};
+
+		return result;
 	}
 
 	calcularAñoBisiesto(anio) {
@@ -61,7 +169,7 @@ class Trabajador {
 	diasAcumuladorAnioBisiestos(anioInicio, anioFin) {
 		var cantidadDeAñosBisiestos = 0;
 		for (var i = anioInicio; i <= anioFin; i++) {
-			if (calcularAñoBisiesto(i)) {
+			if (this.calcularAñoBisiesto(i)) {
 				cantidadDeAñosBisiestos++;
 			}
 		}
@@ -87,7 +195,7 @@ class Trabajador {
 				diasDelMes = 30;
 				break;
 			case 2:
-				if (calcularAñoBisiesto(anio)) {
+				if (this.calcularAñoBisiesto(anio)) {
 					diasDelMes = 29;
 				} else {
 					diasDelMes = 28;
@@ -133,46 +241,44 @@ class Trabajador {
 
 		if (diaEdad < 0) {
 			mesEdad--;
-			let calcularMes = calcularDiasDelMes(mesNac + 1, añoActual);
+			let calcularMes = this.calcularDiasDelMes(mesNac + 1, añoActual);
 			diaEdad = calcularMes - diaNac + diaActual;
 		}
 
-		mesesEnDias = 0;
+		let mesesEnDias = 0;
 		if (mesNac > mesActual) {
 			for (let i = 0; i < mesActual; i++) {
-				mesesEnDias += calcularDiasDelMes(i + 1, añoActual);
+				mesesEnDias += this.calcularDiasDelMes(i + 1, añoActual);
 			}
 			for (let i = mesNac - 1; i < 12; i++) {
-				mesesEnDias += calcularDiasDelMes(i + 1, añoActual);
+				mesesEnDias += this.calcularDiasDelMes(i + 1, añoActual);
 			}
 		} else {
 			for (let i = mesNac; i < mesActual; i++) {
-				mesesEnDias += calcularDiasDelMes(i + 1, añoActual);
+				mesesEnDias += this.calcularDiasDelMes(i + 1, añoActual);
 			}
 		}
 
-		let diasAcum = diasAcumuladorAnioBisiestos(añoNac, añoActual);
+		let diasAcum = this.diasAcumuladorAnioBisiestos(añoNac, añoActual);
 
 		let diasTotales = añoEdad * 365 + mesesEnDias + diaEdad + diasAcum;
 
 		let mensaje = `
-			El día que nació fue: ${diaDeLaSemana(numeroDiaDelaSemana)} 
+			El día que nació fue: ${this.diaDeLaSemana(numeroDiaDelaSemana)} 
 			Su edad es: ${añoEdad} años y ${mesEdad} meses y ${diaEdad} días 
 			La cantidad de meses que tiene son: ${añoEdad * 12 + mesEdad} meses 
 			La cantidad de días que tiene son: ${diasTotales} días  
-			${
-				mesEdad == 0 && diaEdad == 0
-					? `Felicidades estás de cumpleaños`
-					: `Para su próximo cumpleaños faltan: ${
-							mesEdad == 2
-								? diasAcumuladorAnioBisiestos(añoActual + 1, añoActual + 1)
-								: 0 + 365 - diaEdad
-					  } días`
+			${mesEdad == 0 && diaEdad == 0
+				? `Felicidades estás de cumpleaños`
+				: `Para su próximo cumpleaños faltan: ${mesEdad == 2
+					? this.diasAcumuladorAnioBisiestos(añoActual + 1, añoActual + 1)
+					: 0 + 365 - diaEdad
+				} días`
 			}
 			La hora en que ha realizado su consulta es: ${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`;
 
 		let resultado = {
-			diaDeLaSemanaNacio: diaDeLaSemana(numeroDiaDelaSemana),
+			diaDeLaSemanaNacio: this.diaDeLaSemana(numeroDiaDelaSemana),
 			edad: {
 				anio: añoEdad,
 				mes: mesEdad,
@@ -183,7 +289,7 @@ class Trabajador {
 			esHoySuCumpleaños: mesEdad == 0 && diaEdad == 0,
 			diasRestantesParaSuProximoCumpleanios:
 				mesEdad == 2
-					? diasAcumuladorAnioBisiestos(añoActual + 1, añoActual + 1)
+					? this.diasAcumuladorAnioBisiestos(añoActual + 1, añoActual + 1)
 					: 0 + 365 - diaEdad,
 			horaDeConsulta: `${fechaActual.getHours()}:${fechaActual.getMinutes()}:${fechaActual.getSeconds()}`,
 			mensajeCompleto: mensaje,
@@ -192,23 +298,10 @@ class Trabajador {
 		return resultado;
 	}
 
-	calcularPermanenciaEnLaOrganizacion(fechaIngreso, fechaActual) {
-		let resultado = calcularEdad(fechaIngreso, fechaActual);
 
-		let result = {
-			dias: resultado.edadEnDias,
-			meses: resultado.edadEnMeses,
-			anios: resultado.edad.anio,
-			diasParaCompletarAnio: resultado.diasRestantesParaSuProximoCumpleanios,
-			tiempo: resultado.edad,
-			mensajeCompleto: `Su permanencia en la organización es de: ${resultado.edadEnDias} días
-			Su permanencia en la organización es de: ${resultado.edadEnMeses} meses
-			Su permanencia en la organización es de: ${resultado.edad.anio} años y ${resultado.edad.mes} meses y ${resultado.edad.dias} días
-			Para completar el año de permanencia faltan: ${resultado.diasRestantesParaSuProximoCumpleanios} días`,
-		};
-
-		return result;
-	}
 }
 
-export default { Trabajador };
+
+
+
+export default Trabajador
