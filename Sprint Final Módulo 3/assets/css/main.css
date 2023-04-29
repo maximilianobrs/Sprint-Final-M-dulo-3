@@ -6,34 +6,22 @@ html{
     margin: 0;
     padding: 0;
 }
-label{
-    margin-bottom: 5px;
+
+main{
+    background-image: url('https://www.xtrafondos.com/wallpapers/vertical/atardecer-morado-en-montanas-nevadas-8927.jpg');
+    background-position: center;
+    background-size: cover;
 }
-.tittle-form{
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-h2{
-    font-weight: normal;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-.input-edit{
-    height: 25px;
-    padding: 0 5px;
-    border-radius: 10px;
-}
-select{
-    height: 25px;
-    padding: 0 5px;
-    border-radius: 10px;
-    border: 2px solid black;
-    height: 40px;
-} 
+
 .container{
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
+}
+.tittle-form{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 .formulario{
     padding: 5rem 0;
@@ -41,74 +29,22 @@ select{
     justify-content: center;
 }
 .box-form{
-    border: 2px solid black;
+    background-color: white;
     padding: 3rem;
-    width: 350px;
+    width: 500px;
     height: auto;
     border-radius: 20px;
 }
-.box-colum{
-    display: flex;
-    flex-direction: column;
-}
-.box-row{
-    display: flex;
-}
-.box-col{
-    width: 50%;
-}
-.content{
-    margin-bottom: 1rem;
-}
-
 .box-button{
     display: flex;
     justify-content: space-around;
     margin-top: 2rem;
 }
-.row{
-    display: flex;
-    justify-content: space-between;
-}
-.col{
-    width: 48%;
-}
-.edit-button-form{
-    padding: 10px;
-    width: 100px;
+
+table{
+    margin: 2rem 2rem;
+    border: 5px solid black;
 }
 
-.tabla{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 2rem 0;
-}
-.box-but{
-    border-top: 2px solid black;
-    padding: 20px;
-}
-.box-but button{
-    margin: 0 5px;
-    padding: 10px;
-}
-.content-table {
-    border-collapse: collapse;
-    min-width: 400px;
-    overflow: hidden;
-}
-.content-table thead tr {
-    background-color: #5d5d5d;
-    color: #ffffff;
-    text-align: left;
 
-}
-
-.content-table th, .content-table td {
-    padding: 20px 15px;
-}
-
-.content-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-}
 

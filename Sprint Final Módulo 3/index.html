@@ -15,26 +15,27 @@
 
 	<main>
 		<div class="container">
-			<div class="formulario">
+			<section class="formulario">
 				<form id="formTrabajador" class="box-form">
-
+					<h2 class="tittle-form">Formulario</h2>
 					<!-- INGRESO DE NOMBRES -->
 					<div class="mb-3">
 						<label class="form-label" for="nombres">Nombres:</label>
-						<input class="form-control" type="text" id="nombres" name="nombres" placeholder="Ingrese Nombres"
-							class="input-edit">
+						<input class="form-control" type="text" id="nombres" name="nombres"
+							placeholder="Ingrese Nombres" class="input-edit">
 					</div>
 					<!-- INGRESO DE APELLIDOS -->
 					<div class="mb-3">
 						<label class="form-label" for="apellidos">Apellidos:</label>
-						<input class="form-control" type="text" id="apellidos" name="apellidos" placeholder="Ingrese Apellidos"
-							class="input-edit">
+						<input class="form-control" type="text" id="apellidos" name="apellidos"
+							placeholder="Ingrese Apellidos" class="input-edit">
 					</div>
 
 					<!-- INGRESO DE FECCHA NACIMIENTO -->
 					<div class="mb-3">
 						<label class="form-label" for="fechaNacimiento">Fecha Nacimiento:</label>
-						<input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento" class="input-edit">
+						<input class="form-control" type="date" id="fechaNacimiento" name="fechaNacimiento"
+							class="input-edit">
 					</div>
 
 					<!-- INGRESO DE TRABAJADOR ACTIVO O  NO -->
@@ -51,7 +52,8 @@
 					<!-- INGRESO DE FECHA DE INGRESO DE TRABAJADOR -->
 					<div class="mb-3">
 						<label class="form-label" for="fechaIngreso">Fecha Ingreso:</label>
-						<input class="form-control" type="date" id="fechaIngreso" name="fechaIngreso" class="input-edit">
+						<input class="form-control" type="date" id="fechaIngreso" name="fechaIngreso"
+							class="input-edit">
 					</div>
 
 					<!-- INGRESO DE SUELDO Y SUELDO ANTERIOR -->
@@ -62,8 +64,8 @@
 					</div>
 					<div class="mb-3">
 						<label class="form-label" for="sueldoSemestreAnterior">Sueldo Anterior:</label>
-						<input class="form-control" type="number" id="sueldoSemestreAnterior" name="sueldoSemestreAnterior"
-							placeholder="Ingrese Sueldo Anterior" class="input-edit">
+						<input class="form-control" type="number" id="sueldoSemestreAnterior"
+							name="sueldoSemestreAnterior" placeholder="Ingrese Sueldo Anterior" class="input-edit">
 					</div>
 					<!-- INGRESO DE CARGA FAMILIAR -->
 					<div class="mb-3">
@@ -78,8 +80,8 @@
 					<!-- INGRESO CANTIDAD DE CARGA FAMILIAR -->
 					<div class="mb-3">
 						<label class="form-label" for="cantidadCargasFamiliares">Cantidad Carga:</label>
-						<input class="form-control" type="number" id="cantidadCargasFamiliares" name="cantidadCargasFamiliares"
-							placeholder="Ingrese Numero de Carga" class="input-edit">
+						<input class="form-control" type="number" id="cantidadCargasFamiliares"
+							name="cantidadCargasFamiliares" placeholder="Ingrese Numero de Carga" class="input-edit">
 					</div>
 
 					<!-- Botones del formulario -->
@@ -88,71 +90,51 @@
 						<button class="btn btn-outline-danger" type="button" formnovalidate>cancelar</button>
 					</div>
 				</form>
-			</div>
+			</section>
 		</div>
 
-		</div>
-		<div class="container">
-			<div class="table-responsive">
+		<section class="table-responsive">
 
-				<!-- tabla de datos -->
-				<table class="table table-bordered table-hover">
-					<thead>
-						<div class="box-but">
-							<button>cálculos con fechas</button>
-							<button>cálculos de sueldo</button>
-							<button>Mostrar todo</button>
-						</div>
-						<tr>
-							<th>N</th>
-							<th>Nombres</th>
-							<th>Apllidos</th>
-							<th>Fecha <br>nacimiento</th>
-							<th>Trabajador <br>activo</th>
-							<th>Fecha <br>ingreso</th>
-							<th>Sueldo <br>actual</th>
-							<th>Sueldo semestre <br>anterior</th>
-							<th>Activo con cargas<br>familiares</th>
-							<th>Cantidad de cargas<br>familiares</th>
-							<th>Sueldo Final</th>
-							<th>Tramo Carga</th>
-							<th>Monto total carga</th>
-							<th>Menú</th>
-						</tr>
-					</thead>
-					<tbody id="resultTbody">
-						<tr>
-							<td>01</td>
-							<td>loadsa</td>
-							<td>dsadsadasd</td>
-							<td>dsadd</td>
-							<td>dsada</td>
-							<td>dsad</td>
-							<td>dsads</td>
-							<td>dsadasd</td>
-							<td>dasdsad</td>
-							<td>dasdsad</td>
-							<td>dsadasd</td>
-							<td>dasdsad</td>
-							<td>dasdsad</td>
-							<td>
-								<div class="btn-group">
-									<button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
-										aria-expanded="false">
-										Menú
-									</button>
-									<ul class="dropdown-menu">
-										<li><a class="dropdown-item" href="#">Ver todo</a></li>
-										<li><a class="dropdown-item" href="#">Calcular Permanencia</a></li>
-										<li><a class="dropdown-item" href="#">Calcular Tramo Carga y Sueldo Final</a></li>
-									</ul>
-								</div>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
+			<!-- tabla de datos -->
+			<table class="table table-light table-hover">
+				<thead>
+					<tr>
+						<th>N</th>
+						<th>Nombres</th>
+						<th>Apllidos</th>
+						<th>Fecha <br>nacimiento</th>
+						<th>Trabajador <br>activo</th>
+						<th>Fecha <br>ingreso</th>
+						<th>Sueldo <br>actual</th>
+						<th>Sueldo semestre <br>anterior</th>
+						<th>Activo con cargas<br>familiares</th>
+						<th>Cantidad de cargas<br>familiares</th>
+						<th>Sueldo Final</th>
+						<th>Tramo Carga</th>
+						<th>Monto total carga</th>
+						<th>Menú</th>
+					</tr>
+				</thead>
+				<tbody id="resultTbody">
+					<tr>
+						<td>
+							<div class="btn-group">
+								<button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown"
+									aria-expanded="false">
+									Menú
+								</button>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#">Ver todo</a></li>
+									<li><a class="dropdown-item" href="#">Calcular Permanencia</a></li>
+									<li><a class="dropdown-item" href="#">Calcular Tramo Carga y Sueldo Final</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</section>
 	</main>
 	<div id="mensaje">
 
@@ -199,10 +181,10 @@
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 		crossorigin="anonymous"></script>
 	<script src="assets/js/modalComponent.js"></script>
-	<script> 
+	<script>
 		function show(mensaje, id) {
-			console.log('verTodo', mensaje,id)
-			let modal=ModalOwner({content:mensaje, id})
+			console.log('verTodo', mensaje, id)
+			let modal = ModalOwner({ content: mensaje, id })
 			console.log(modal)
 			document.querySelector('#mensaje').innerHTML = modal
 			const myModalAlternative = new bootstrap.Modal(`#${id}`, { keyboard: false })
